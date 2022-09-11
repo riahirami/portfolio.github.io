@@ -1,0 +1,65 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+	{{ form_start(formulaire) }}
+
+	<div class="form-control">
+		<i class="fa fa-calendar"></i>
+		{{ form_label(formulaire.nom) }}
+		{{ form_widget(formulaire.nom) }}
+
+
+	</div>
+	{{ form_end(formulaire) }}
+
+	<hr>
+
+	{% if  not app.user%}
+		<p>vous devez se connecter</p>
+
+	{% elseif  app.user.role == 'ROLE_ADMIN' %}
+
+		<div class="masthead  text-center">
+
+			<h1>{{ form_title }}</h1>
+
+			{{form_start(formulaire)}}
+
+			{{form_widget(formulaire)}}
+
+
+			<button type="submit" class="btn btn-success">ajouter</button>
+
+
+			{{form_end(formulaire)}}
+
+			<hr>
+
+			<form action="{{ path('AjouterProjet') }}" method="post">
+				<div class="form-group">
+					<input placeholder="titre projet..." requied name="_nom" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<input placeholder="description..." requied name="_description" type="text" class="form-control">
+				</div>
+				<div class="form-group">
+					<input placeholder="image..." requied name="_image" type="file" class="form-control">
+				</div>
+				<div class="form-group">
+					<input placeholder="Date ..." requied name="_date_creation" type="date" class="form-control">
+				</div>
+				<div class="form-group">
+					<input placeholder="statut..." requied name="_statut" type="select" class="form-control">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success">ajouter</button>
+				</div>
+			</form>
+
+			<div>
+			{% elseif  app.user.role == 'ROLE_USER' %}
+				<p>vous devez étre administrateur pour avoir accee</p>
+
+
+		{% endif  %}
+	{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block show %}
+	<div class="container show">
+		<div class="row text-center">
+			<div class="col-md-12 col-lg-12">
+
+
+				<h1>{{ titre }}
+					{{p.id}}</h1>
+				<img class="img-fluid" src="{{asset('uploads/')}}{{p.image}}"/>
+
+				<p>{{p.nom}}</p>
+				<p>{{p.description}}</p>
+				<p>{{p.statut}}</p>
+				<button type="button" class="btn btn-primary">{{p.statut}}
+					<span class="badge"></span>
+				</button><hr>
+
+
+				{% if  'ROLE_ADMIN' %}
+					<a class="btn btn-warning" href="{{ path("editerProjet",{'id':p.id}) }}">modifier</a>
+					<a class="btn btn-danger" href="{{ path("supprimer",{'id':p.id}) }}">supprimer</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block body %}
+	<div class="container-fluid">
+
+
+		<div
+			class="row">
+
+			<!--CUSTOM CHART START -->
+			{% if  not app.user%}
+				<p>vous devez se connecter</p>
+
+			{% elseif  app.user.role == 'ROLE_ADMIN' %}
+
+				{% for i in liste %}
+
+					<div class=" col-sm-3 col-md-3 col-lg-3 ">
+
+						<img class="img-responsive img-fluid" src="{{asset('uploads/')}}{{i.image}}" alt=" " width="auto"/>
+
+						<div class="caption text-center">
+
+							<p>{{i.nom}}</p>
+							<p>{{i.description}}</p>
+
+							<span class="label label-theme  mail-info">
+								{{i.statut}}
+
+							</span>
+							<hr>
+
+						</div>
+
+						{% if  'ROLE_ADMIN' %}
+							<p>
+								<a class="btn btn-default" href="{{ path("editerProjet",{'id':i.id}) }}">modifier</a>
+
+								<a class="btn btn-danger" href="{{ path("supprimer",{'id':i.id}) }}">supprimer</a>
+							</p>
+						{% endif %}
+					</div>
+				{% endfor %}
+			{% elseif  app.user.role == 'ROLE_USER' %}
+				<p>vous devez étre administrateur pour avoir accee</p>
+
+
+			{% endif  %}
+		</div>
+		<!-- /row -->
+
+
+	</div>
+{% endblock %}

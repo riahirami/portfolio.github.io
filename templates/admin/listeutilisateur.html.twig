@@ -1,0 +1,52 @@
+{% extends "admin/base.html.twig" %}
+
+
+{% block body %}
+
+
+	{% if  not app.user%}
+		<p class="alert alert-danger">vous devez se connecter</p>
+
+	{% elseif  app.user.role == 'ROLE_ADMIN' %}
+
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">username</th>
+					<th scope="col">mail</th>
+					<th scope="col">Role</th>
+					<th scope="col">-</th>
+					<th scope="col">-</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in liste %}
+
+					<tr>
+						<th scope="row">{{i.id}}</th>
+						<td>{{i.username}}</td>
+						<td>{{i.email}}</td>
+						<td>{{i.role}}</td>
+						<td>
+							<a class="btn btn-warning" href="{{ path("editerUtilisateur",{'id':i.id}) }}">Editer</a>
+						</td>
+						<td>
+							<a class="btn btn-danger" href="{{ path("supprimerUtilisateur",{'id':i.id}) }}">Supprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+
+			</tbody>
+		</table>
+
+
+	{% elseif  app.user.role == 'ROLE_USER' %}
+		<p class="alert alert-danger">vous devez étre administrateur pour avoir accee</p>
+
+
+	{% endif  %}
+
+
+{% endblock %}

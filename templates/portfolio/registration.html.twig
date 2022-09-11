@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block inscri %}
+	<h1>Inscription sur le site</h1>
+
+	{% if app.user %}
+		<p>vous étes connecté
+		</p>
+
+
+	{% else %}
+		<div class="form-control">
+			{{ form_start(form) }}
+			<div class="form-group">
+				{{ form_row(form.email, { 'attr': { 'placeholder': 'Adresse email...' } } ) }}</div>
+			<div class="form-group">
+				{{ form_row(form.username, { 'label':'Nom d\'utilisateur', 'attr': {'placeholder':'Nom d\'utilisateur...' } }) }}</div>
+			<div class="form-group">
+				{{ form_row(form.password, { 'label':'Mot de passe', 'attr': {'placeholder':'Mot de passe...' } }) }}</div>
+			<div class="form-group">
+				{{ form_row(form.confirm_password, { 'label':'Répétez votre mot de passe', 'attr':{'placeholder':'Répétez votre mot de passe...' } }) }}</div>
+			<button type="submit" class="btn btn-success">Inscription</button>
+			{{ form_end(form) }}
+
+			{#
+			
+						<form action="{{ path('security_registration') }}" method="post">
+							<div class="form-group">
+								<input placeholder="username..." requied name="_username" value="" type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<input placeholder="Adresse email..." requied name="_usernam" value="" type="text" class="form-control">
+							</div>
+							<div class="form-group">
+								<input placeholder="Mot de passe..." requied name="_password" type="password" class="form-control">
+							</div>
+							<div class="form-group">
+								<input placeholder="confirmer Mot de passe..." requied name="_passwor" type="password" class="form-control">
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-success">Connexion</button>
+							</div>
+						</form>
+					</div>
+					#}
+		{% endif %}
+	{% endblock %}
