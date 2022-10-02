@@ -2,7 +2,9 @@
 
 
 {% block body %}
+	<div class="container-fluid">
 
+		<div class="row">
 
 	{% if  not app.user%}
 		<p class="alert alert-danger">vous devez se connecter</p>
@@ -47,6 +49,7 @@
 
 
 	{% endif  %}
-
+</div>
+</div>
 
 {% endblock %}

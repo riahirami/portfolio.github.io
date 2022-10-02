@@ -10,6 +10,7 @@
 		{% endif %}
 
 		{% if not app.user %}
+		<h2>Ramos c'est toi ?</h2>
 			<form action="{{ path('security_login') }}" method="post">
 				<h3>Connectez-vous !</h3>
 				<div class="form-group">

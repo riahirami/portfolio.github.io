@@ -3,15 +3,15 @@
 
 {% block show %}
 	<div class="container show">
-		<div class="row text-center">
+		<div class="row ">
 			<div class="col-md-12 col-lg-12">
 
 
-				<h1>{{ titre }}
-					{{p.id}}</h1>
+				<h1 class="text-center">{{ p.nom }}
+					</h1>
 				<img class="img-fluid" src="{{asset('uploads/')}}{{p.image}}"/>
-
-				<p>{{p.nom}}</p>
+<br>
+<br>
 				 <p><b>Description :</b> {{p.description}}</p>
 					<span class="badge bg-warning">statut :  {{p.statut}}</span>
 			<hr>

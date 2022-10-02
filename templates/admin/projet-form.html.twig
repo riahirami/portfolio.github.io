@@ -10,6 +10,7 @@
 
 	<h1>{{ form_title }}</h1>
 
+<form>
 			{{form_start(formulaire)}}
 
 			{# {{form_widget(formulaire)}} #}
@@ -22,7 +23,9 @@
 
 				{{ form_row(formulaire.description, { 'attr': { 'placeholder': 'description du projet...' } } ) }}</div>
 			<div class="form-group">
-				{{ form_row(formulaire.image, { 'attr': { 'placeholder': 'image...' } } ) }}</div>
+				{{ form_row(formulaire.image, { 'attr': { 'placeholder': 'image...' } } ) }}
+				</div>
+				
 			<div class="form-group">
 				{{ form_row(formulaire.date_creation, { 'attr': { 'placeholder': 'date creation...' } } ) }}</div>
 			<div class="form-group">
@@ -35,7 +38,7 @@
 			<button type="submit" class="btn btn-success">ajouter</button>
 		</div>
 			{{form_end(formulaire)}}
-
+</form>
 
 	<hr>
 
