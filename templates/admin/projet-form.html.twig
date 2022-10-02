@@ -1,60 +1,46 @@
 {% extends 'admin/base.html.twig' %}
 
 {% block body %}
-	{{ form_start(formulaire) }}
 
-	<div class="form-control">
-		<i class="fa fa-calendar"></i>
-		{{ form_label(formulaire.nom) }}
-		{{ form_widget(formulaire.nom) }}
-
-
-	</div>
-	{{ form_end(formulaire) }}
-
-	<hr>
 
 	{% if  not app.user%}
 		<p>vous devez se connecter</p>
 
 	{% elseif  app.user.role == 'ROLE_ADMIN' %}
 
-		<div class="masthead  text-center">
-
-			<h1>{{ form_title }}</h1>
+	<h1>{{ form_title }}</h1>
 
 			{{form_start(formulaire)}}
 
-			{{form_widget(formulaire)}}
+			{# {{form_widget(formulaire)}} #}
 
+			<div class="form-group">
 
+				{{ form_row(formulaire.nom, { 'attr': { 'placeholder': 'nom du projet...' } } ) }}</div>
+
+			<div class="form-group">
+
+				{{ form_row(formulaire.description, { 'attr': { 'placeholder': 'description du projet...' } } ) }}</div>
+			<div class="form-group">
+				{{ form_row(formulaire.image, { 'attr': { 'placeholder': 'image...' } } ) }}</div>
+			<div class="form-group">
+				{{ form_row(formulaire.date_creation, { 'attr': { 'placeholder': 'date creation...' } } ) }}</div>
+			<div class="form-group">
+				{{ form_row(formulaire.statut, { 'attr': { 'placeholder': 'statut...' } } ) }}</div>
+			<div class="form-group">
+				{{ form_row(formulaire.technologies, { 'attr': { 'placeholder': 'technologies...' } } ) }}</div>
+			<div class="form-group">
+				{{ form_row(formulaire.lien_github, { 'attr': { 'placeholder': 'lien...' } } ) }}</div>
+			<div class="form-group">
 			<button type="submit" class="btn btn-success">ajouter</button>
-
-
+		</div>
 			{{form_end(formulaire)}}
 
-			<hr>
 
-			<form action="{{ path('AjouterProjet') }}" method="post">
-				<div class="form-group">
-					<input placeholder="titre projet..." requied name="_nom" type="text" class="form-control">
-				</div>
-				<div class="form-group">
-					<input placeholder="description..." requied name="_description" type="text" class="form-control">
-				</div>
-				<div class="form-group">
-					<input placeholder="image..." requied name="_image" type="file" class="form-control">
-				</div>
-				<div class="form-group">
-					<input placeholder="Date ..." requied name="_date_creation" type="date" class="form-control">
-				</div>
-				<div class="form-group">
-					<input placeholder="statut..." requied name="_statut" type="select" class="form-control">
-				</div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-success">ajouter</button>
-				</div>
-			</form>
+	<hr>
+
+			<hr>
+		
 
 			<div>
 			{% elseif  app.user.role == 'ROLE_USER' %}

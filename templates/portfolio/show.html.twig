@@ -12,14 +12,12 @@
 				<img class="img-fluid" src="{{asset('uploads/')}}{{p.image}}"/>
 
 				<p>{{p.nom}}</p>
-				<p>{{p.description}}</p>
-				<p>{{p.statut}}</p>
-				<button type="button" class="btn btn-primary">{{p.statut}}
-					<span class="badge"></span>
-				</button><hr>
+				 <p><b>Description :</b> {{p.description}}</p>
+					<span class="badge bg-warning">statut :  {{p.statut}}</span>
+			<hr>
 
 
-				{% if  'ROLE_ADMIN' %}
+				{% if  	app.user %}
 					<a class="btn btn-warning" href="{{ path("editerProjet",{'id':p.id}) }}">modifier</a>
 					<a class="btn btn-danger" href="{{ path("supprimer",{'id':p.id}) }}">supprimer</a>
 				{% endif %}

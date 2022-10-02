@@ -4,14 +4,14 @@
 	<div class="container-fluid">
 
 
-		<div
-			class="row">
+		<div class="row">
 
 			<!--CUSTOM CHART START -->
 			{% if  not app.user%}
 				<p>vous devez se connecter</p>
 
 			{% elseif  app.user.role == 'ROLE_ADMIN' %}
+		<h1> Gestion des projets </h1>
 
 				{% for i in liste %}
 
@@ -23,7 +23,7 @@
 
 							<p>{{i.nom}}</p>
 							<p>{{i.description}}</p>
-
+Statut: 
 							<span class="label label-theme  mail-info">
 								{{i.statut}}
 
@@ -34,9 +34,9 @@
 
 						{% if  'ROLE_ADMIN' %}
 							<p>
-								<a class="btn btn-default" href="{{ path("editerProjet",{'id':i.id}) }}">modifier</a>
+								<a class="btn btn-default" href="{{ path("editerProjet",{'id':i.id}) }}">Modifier</a>
 
-								<a class="btn btn-danger" href="{{ path("supprimer",{'id':i.id}) }}">supprimer</a>
+								<a class="btn btn-danger" href="{{ path("supprimer",{'id':i.id}) }}">Supprimer</a>
 							</p>
 						{% endif %}
 					</div>

@@ -52,6 +52,16 @@ class Projet extends AbstractType
      */
     private $date_creation;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $technologies;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $lien_github;
+
     public function __construct()
     {
         $this->date_creation = new \DateTime;
@@ -120,6 +130,30 @@ class Projet extends AbstractType
     public function setStatut(string $statut): self
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getTechnologies(): ?string
+    {
+        return $this->technologies;
+    }
+
+    public function setTechnologies(?string $technologies): self
+    {
+        $this->technologies = $technologies;
+
+        return $this;
+    }
+
+    public function getLienGithub(): ?string
+    {
+        return $this->lien_github;
+    }
+
+    public function setLienGithub(?string $lien_github): self
+    {
+        $this->lien_github = $lien_github;
 
         return $this;
     }
