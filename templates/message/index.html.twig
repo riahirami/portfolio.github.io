@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Message index{% endblock %}
+
+{% block body %}*
+<div class="container-fluid" style="padding-bottom:300px">
+
+    <h1>Boite de réception </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Utilisateur</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Message</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for message in messages %}
+            <tr>
+                <td>{{ message.id }}</td>
+                <td>{{ message.utilisateur }}</td>
+                <td>{{ message.email }}</td>
+                <td>{{ message.telephone }}</td>
+                <td>{{ message.message }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('message_show', {'id': message.id}) }}">Afficher</a>
+                        {{ include('message/_delete_form.html.twig') }}
+
+                    {# <a href="{{ path('message_edit', {'id': message.id}) }}">edit</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">pas de message</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    {# <a href="{{ path('message_new') }}">Create new</a> #}
+{% endblock %}

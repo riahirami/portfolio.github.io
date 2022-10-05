@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Utilisateur;
 use App\Form\RegistrationType;
-
+use App\Entity\Message;
+use App\Form\MessageType;
+use App\Repository\MessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -52,16 +54,32 @@ class SecurityController extends AbstractController
     /**
      * @Route("/connexion",name="security_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils)
+    public function login(AuthenticationUtils $authenticationUtils,Request $request)
     {
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+
+        $message = new Message();
+        $form = $this->createForm(MessageType::class, $message);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($message);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('portfolio', [], Response::HTTP_SEE_OTHER);
+        }
+
+
+
         return $this->render(
             'portfolio/login.html.twig',
-            ['lastUsername' => $lastUsername, 'error' => $error]
+            ['form' => $form->createView(),
+                'lastUsername' => $lastUsername, 'error' => $error]
         );
         return $this->redirectToRoute('listeprojet');
     }
@@ -72,21 +90,39 @@ class SecurityController extends AbstractController
     public function logout()
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
-        return $this->redirectToRoute('security_login');
+        return $this->redirectToRoute('portfolio');
     }
 
 
     /**
      * @Route("admin/Listeutilisateur", name="listeutilisateur")
      */
-    public function ListeUtilisateur(Request $request): Response
+    public function ListeUtilisateur(Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $passwordEncoder): Response
     {
 
+        $U1 = new Utilisateur();
+        $form = $this->createForm(RegistrationType::class, $U1);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $U1->setPassword($passwordEncoder->encodePassword(
+                $U1,
+                $U1->getPassword()
+            ));
+
+            $em->persist($U1);
+
+            $em->flush();
+        }
         $user = $this->getDoctrine()->getRepository(Utilisateur::class)->findAll();
 
         return $this->render('admin/listeutilisateur.html.twig', [
             "liste" => $user,
-            "form_title" => "Liste des utilisateur"
+            "form_title" => "Liste des utilisateur",
+            'form' => $form->createView()
         ]);
     }
+
+
+
+
 }

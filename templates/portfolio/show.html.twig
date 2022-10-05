@@ -4,24 +4,36 @@
 {% block show %}
 	<div class="container show">
 		<div class="row ">
-			<div class="col-md-12 col-lg-12">
+			<div class="col-md-6 col-lg-6">
 
 
-				<h1 class="text-center">{{ p.nom }}
-					</h1>
+				<h1 class="text-center">{{ p.nom }} </h1>
 				<img class="img-fluid" src="{{asset('uploads/')}}{{p.image}}"/>
-<br>
-<br>
-				 <p><b>Description :</b> {{p.description}}</p>
-					<span class="badge bg-warning">statut :  {{p.statut}}</span>
+
+
+				 
+			</div>
+
+			<div class="col-md-6">
+			<br>
+<br><br>
+<br><br>
+<p><b>Description :</b> {{p.description}}</p>
+				<p > <b>Technologies :</b>	{{p.technologies}} </p>
+				<div class="text-center">
+
+					<p><b>statut : </b><span class="badge bg-warning">    {{p.statut}}</span></p>
+				</div>
 			<hr>
 
 
 				{% if  	app.user %}
-					<a class="btn btn-warning" href="{{ path("editerProjet",{'id':p.id}) }}">modifier</a>
-					<a class="btn btn-danger" href="{{ path("supprimer",{'id':p.id}) }}">supprimer</a>
+				<div class="text-center">
+					<a class="btn btn-primary" href="{{ path("editerProjet",{'id':p.id}) }}">Modifier</a>
+					<a class="btn btn-danger" href="{{ path("supprimer",{'id':p.id}) }}">Supprimer</a>
+				</div>	
 				{% endif %}
-			</div>
+</div>
 		</div>
 	</div>
 {% endblock %}

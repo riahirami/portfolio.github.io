@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block message %}
+
+    {{ include('message/_form.html.twig') }}
+
+    <a href="{{ path('message_index') }}">back to list</a>
+{% endblock %}

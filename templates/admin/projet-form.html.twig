@@ -8,41 +8,59 @@
 
 	{% elseif  app.user.role == 'ROLE_ADMIN' %}
 
-	<h1>{{ form_title }}</h1>
+		<div class="container-fluid" >
+	<h2>{{ form_title }}</h2>
+	<br>
+	<br>
 
-<form>
+		<div class="row">
+			  <div class="col-md-1">
+			  </div>
+
+			<div class="col-md-6 offset-md-2">
+			<form >
 			{{form_start(formulaire)}}
 
-			{# {{form_widget(formulaire)}} #}
+			<div class="form-group">
+				{{ form_label(formulaire.nom) }}
+				{{ form_widget(formulaire.nom , { 'attr': { 'placeholder': 'nom du projet...' ,'class': 'form-control'} } ) }}
+			</div>
+			<div class="form-group">
+				{{ form_label(formulaire.description) }}
+				{{ form_widget(formulaire.description, { 'attr': { 'placeholder': 'description du projet...','class': 'form-control' } } ) }}
+			</div>
+			<div class="form-group">
+				{{ form_label(formulaire.image) }}
+				{{ form_widget(formulaire.image, { 'attr': { 'placeholder': 'image...' ,'class': 'form-control'} } ) }}
+			</div>			
+			<div class="form-group">
+				{{ form_label(formulaire.date_creation) }}
+				{{ form_widget(formulaire.date_creation, { 'attr': { 'placeholder': 'date creation...','class': 'form-control' } } ) }}
+			</div>
+			<div class="form-group">
+				{{ form_label(formulaire.statut) }}
+				{{ form_widget(formulaire.statut, { 'attr': { 'placeholder': 'statut...','class': 'form-control' } } ) }}
+			</div>
+ 			 <div class="form-group ">
+				{{ form_label(formulaire.technologies) }}
 
+				{{ form_widget(formulaire.technologies, { 'attr': { 'placeholder': 'technologies...','class': 'form-control' } } ) }}
+			</div>
 			<div class="form-group">
-
-				{{ form_row(formulaire.nom, { 'attr': { 'placeholder': 'nom du projet...' } } ) }}</div>
-
-			<div class="form-group">
-
-				{{ form_row(formulaire.description, { 'attr': { 'placeholder': 'description du projet...' } } ) }}</div>
-			<div class="form-group">
-				{{ form_row(formulaire.image, { 'attr': { 'placeholder': 'image...' } } ) }}
-				</div>
-				
-			<div class="form-group">
-				{{ form_row(formulaire.date_creation, { 'attr': { 'placeholder': 'date creation...' } } ) }}</div>
-			<div class="form-group">
-				{{ form_row(formulaire.statut, { 'attr': { 'placeholder': 'statut...' } } ) }}</div>
-			<div class="form-group">
-				{{ form_row(formulaire.technologies, { 'attr': { 'placeholder': 'technologies...' } } ) }}</div>
-			<div class="form-group">
-				{{ form_row(formulaire.lien_github, { 'attr': { 'placeholder': 'lien...' } } ) }}</div>
-			<div class="form-group">
-			<button type="submit" class="btn btn-success">ajouter</button>
-		</div>
+				{{ form_label(formulaire.lien_github) }}
+				{{ form_widget(formulaire.lien_github, { 'attr': { 'placeholder': 'lien...','class': 'form-control' } } ) }}
+			</div>
+			<div class="">
+			<button type="submit" class="btn btn-dark btn-block">Valider</button>
+			</div>
+			
 			{{form_end(formulaire)}}
 </form>
+			</div>
+		</div>
+		
+</div>
 
-	<hr>
-
-			<hr>
 		
 
 			<div>

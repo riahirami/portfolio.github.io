@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Projet;
 use App\Form\ProjetType;
+use App\Entity\Message;
+use App\Form\MessageType;
+use App\Repository\MessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,18 +15,39 @@ use Symfony\Component\HttpFoundation\Request;
 class PortfolioController extends AbstractController
 {
     /**
-     * @Route("/index", name="portfolio")
+     * @Route("/index", name="portfolio", methods={"GET","POST"})
      */
     public function index(Request $request): Response
     {
+
+        $message = new Message();
+        $form = $this->createForm(MessageType::class, $message);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($message);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('portfolio', [], Response::HTTP_SEE_OTHER);
+        }
+
+    
+
+
         $Project = $this->getDoctrine()->getRepository(Projet::class)->findAll();
 
         return $this->render('/index.html.twig', [
             'controller_name' => 'PortfolioController',
             "list" => $Project,
-            "form_title" => "Liste des Projet"
+            "form_title" => "Liste des Projet",
+            'form' => $form->createView(),
+
         ]);
     }
+
+
+    
 
 
 
@@ -60,13 +84,25 @@ class PortfolioController extends AbstractController
      */
     public function show(Request $request, $id): Response
     {
+        $message = new Message();
+        $form = $this->createForm(MessageType::class, $message);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($message);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('portfolio', [], Response::HTTP_SEE_OTHER);
+        }
 
         $proj = $this->getDoctrine()->getRepository(Projet::class)->find($id);
         //  $form = $this->createform(ProjetType::class, $proj);
 
         return $this->render("portfolio/show.html.twig", [
             "p" => $proj,
+            'form' => $form->createView(),
+
             "titre" => "Le projet "
         ]);
     }

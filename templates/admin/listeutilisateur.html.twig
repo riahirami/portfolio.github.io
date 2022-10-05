@@ -2,54 +2,81 @@
 
 
 {% block body %}
+	<br>
+	<br>
 	<div class="container-fluid">
 
 		<div class="row">
+			<div class="col-md-6">
+				<h3> Ajouter un administrateur</h3>
+				<div class="">
+					{{ form_start(form) }}
+					
+					<div class="form-group">
+						{{ form_label(form.email) }}
+						{{ form_widget(form.email, { 'attr': { 'placeholder': 'Adresse email...'  ,'class': 'form-control'} } ) }}
+					</div>
+					<div class="form-group">
+						{{ form_label(form.username) }}
+						{{ form_widget(form.username, {'attr': {'placeholder':'Nom d\'utilisateur...' ,'class': 'form-control' } }) }}
+					</div>
+					<div class="form-group">
+						{{ form_label(form.password) }}
+						{{ form_widget(form.password, { 'attr': {'placeholder':'Mot de passe...' ,'class': 'form-control' } }) }}
+					</div>
+					<div class="form-group">
+						{{ form_label(form.confirm_password) }}
+						{{ form_widget(form.confirm_password, { 'attr':{'placeholder':'Répétez votre mot de passe...' ,'class': 'form-control' } }) }}
+					</div>
+					<button type="submit" class="btn btn-secondary btn-block">Valider</button>
+					{{ form_end(form) }}
+				</div>
+			</div>
 
-	{% if  not app.user%}
-		<p class="alert alert-danger">vous devez se connecter</p>
+			<div class="col-md-6 offset-md-6" style="padding-bottom:400px">
 
-	{% elseif  app.user.role == 'ROLE_ADMIN' %}
+				{% if  not app.user%}
+					<p class="alert alert-danger">vous devez se connecter</p>
+				{% elseif  app.user.role == 'ROLE_ADMIN' %}
+									<h3> Gestion des administrateurs</h3>
 
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">username</th>
+							<th scope="col">mail</th>
+							<th scope="col">Role</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for i in liste %}
+							<tr>
+								<th scope="row">{{i.id}}</th>
+								<td>{{i.username}}</td>
+								<td>{{i.email}}</td>
+								<td>{{i.role}}</td>
+								<td>
+									<a class="btn btn-warning" href="{{ path("editerUtilisateur",{'id':i.id}) }}">Editer</a>
+									<a class="btn btn-danger" href="{{ path("supprimerUtilisateur",{'id':i.id}) }}">Supprimer</a>
+								</td>
+							</tr>
+						{% endfor %}
 
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">username</th>
-					<th scope="col">mail</th>
-					<th scope="col">Role</th>
-					<th scope="col">-</th>
-					<th scope="col">-</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for i in liste %}
-
-					<tr>
-						<th scope="row">{{i.id}}</th>
-						<td>{{i.username}}</td>
-						<td>{{i.email}}</td>
-						<td>{{i.role}}</td>
-						<td>
-							<a class="btn btn-warning" href="{{ path("editerUtilisateur",{'id':i.id}) }}">Editer</a>
-						</td>
-						<td>
-							<a class="btn btn-danger" href="{{ path("supprimerUtilisateur",{'id':i.id}) }}">Supprimer</a>
-						</td>
-					</tr>
-				{% endfor %}
-
-			</tbody>
-		</table>
+					</tbody>
+				</table>
 
 
-	{% elseif  app.user.role == 'ROLE_USER' %}
-		<p class="alert alert-danger">vous devez étre administrateur pour avoir accee</p>
+				{% elseif  app.user.role == 'ROLE_USER' %}
+					<p class="alert alert-danger">vous devez étre administrateur pour avoir accee</p>
+				{% endif  %}
+			</div>
 
+		</div>
 
-	{% endif  %}
-</div>
-</div>
-
+	</div>
 {% endblock %}
+	
+
+

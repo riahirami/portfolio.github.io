@@ -5,24 +5,31 @@
 
 
 		<div class="row">
-
+		
 			<!--CUSTOM CHART START -->
 			{% if  not app.user%}
 				<p>vous devez se connecter</p>
 
 			{% elseif  app.user.role == 'ROLE_ADMIN' %}
-		<h1> Gestion des projets </h1>
+		<h2> Gestion des projets </h2>
+		<br>
+		<br>
+		<br>
 
 				{% for i in liste %}
 
-					<div class=" col-sm-3 col-md-3 col-lg-3 ">
+					<div class=" col-sm-3 col-md-3 col-lg-3">
 
 						<img class="img-responsive img-fluid" src="{{asset('uploads/')}}{{i.image}}" alt=" " width="auto"/>
 
-						<div class="caption text-center">
+						<div class="caption text-center overflow-hidden">
 
 							<p>{{i.nom}}</p>
 							<p>{{i.description}}</p>
+							<p >
+								{{i.technologies}}
+							</p>
+							
 Statut: 
 							<span class="label label-theme  mail-info">
 								{{i.statut}}
