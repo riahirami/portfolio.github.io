@@ -271,6 +271,11 @@
 						</p>
 						<h5 class="centered">Welcome
 							{{app.user.username}}</h5>
+
+							<br>
+							<br>
+							<br>
+							<br>
 						<li class="sub-menu">
 							<a href="{{ path('listeprojetAdmin')}}">
 								<i class="fa fa-list-ol"></i>
@@ -290,6 +295,14 @@
 							<a class="sub-menu" href="{{ path('listeutilisateur')}}">
 								<i class="fa fa-users"></i>
 								<span>User List
+								</span>
+							</a>
+						</li>
+
+						<li>
+							<a class="sub-menu" href="{{ path('message_index')}}">
+								<i class="fa fa-telegram"></i>
+								<span>Messages
 								</span>
 							</a>
 						</li>
@@ -314,7 +327,7 @@
 					<section class="panel" style="">
 						<header class="panel-heading wht-bg">
 							<h4 class="gen-case">
-								Gestion des utilisateurs
+								
 								<form action="#" class="pull-right mail-src-position">
 									<div class="input-append">
 										<input type="text" class="form-control " placeholder="Search Mail">

@@ -34,17 +34,16 @@
 
 							<p>{{i.nom}}</p>
 							<p>{{i.description}}</p>
-							<p>{{i.statut}}
-							</p>
+							<p class="badge bg-warning">{{i.statut}}							</p>
 
-						</p>
+						<p >technologies 	{{i.technologies}} </p>
 
 
 					</div>
 
 					{% if  'ROLE_ADMIN' %}
-						<a href="{{ path("editerProjet",{'id':i.id}) }}">modifier</a>
-						<a href="{{ path("supprimer",{'id':i.id}) }}">supprimer</a>
+						<a class="btn btn-primary" href="{{ path("editerProjet",{'id':i.id}) }}">modifier</a>
+						<a class="btn btn-danger" href="{{ path("supprimer",{'id':i.id}) }}">supprimer</a>
 					{% endif %}
 
 				</div>

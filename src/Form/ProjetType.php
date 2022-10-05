@@ -19,7 +19,9 @@ class ProjetType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('description')
+            ->add('description', TextareaType::class, [
+                'attr' => ['class' => 'tinymce'],
+            ])
             ->add('image', FileType::class, [
                 'label' => 'upload image',
                 'mapped' => false
@@ -28,6 +30,12 @@ class ProjetType extends AbstractType
             ->add('date_creation', DateType::class, array(
                 'format' => 'yyyy-MMdd',
             ))
+            ->add('technologies', TextareaType::class, [
+                'attr' => ['class' => 'tinymce'],
+            ])
+            ->add('lien_github', TextareaType::class, [
+                'attr' => ['class' => 'tinymce'],
+            ])
 
             ->add('statut', ChoiceType::class, array(
                 'choices' => array(

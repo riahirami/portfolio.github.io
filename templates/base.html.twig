@@ -7,10 +7,13 @@
 		<meta name="author" content=""/>
 		<title>PORTFOLIO</title>
 		<!-- Favicon-->
+
 		<link
 		rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
 		<!-- Font Awesome icons (free version)-->
+
 		<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+		
 		<!-- Google fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"/>
 		<link
@@ -26,7 +29,7 @@
 
 		<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
 			<div class="container">
-				<a class="navbar-brand" href="#page-top">My Portfolio</a>
+				<a class="navbar-brand" href="{{ path('portfolio') }}">My Portfolio</a>
 				<button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					Menu
 					<i class="fas fa-bars"></i>
@@ -34,7 +37,7 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a>
+							<a class="nav-link py-3 px-0 px-lg-3 rounded" href=" #portfolio">Portfolio</a>
 						</li>
 						<li class="nav-item mx-0 mx-lg-1">
 							<a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
@@ -57,14 +60,14 @@
 									Dashboard</a>
 							</li>
 						{% else %}
-							<li class="nav-item mx-0 mx-lg-1">
+							{# <li class="nav-item mx-0 mx-lg-1">
 
-								<a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('security_login') }}">Log-in</a>
-							</li>
-							<li class="nav-item mx-0 mx-lg-1">
+								<a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('security_login') }}">Login</a>
+							</li> #}
+							{# <li class="nav-item mx-0 mx-lg-1">
 
 								<a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ path('security_registration') }}">Inscription</a>
-							</li>
+							</li> #}
 						{% endif %}
 
 
@@ -84,7 +87,7 @@
 				{% block inscri %}{% endblock %}
 
 				<img
-				class="masthead-avatar mb-5" src="{{asset('assets/img/avataaars.svg')}}" alt="..."/>
+				class="masthead-avatar mb-5" src="{{asset('assets/img/Capture.png')}}" alt="..."/>
 				<!-- Masthead Heading-->
 
 
@@ -94,21 +97,63 @@
 				<h1 class="masthead-heading text-uppercase mb-0">Welcome
 					{% if  app.user%}
 						<i class="text-dark">{{app.user.username}}</i>
+						to Your PORTFOLIO
+					{% else %}
+					to my protfolio
 					{% endif %}
-					to My PORTFOLIO</h1>
+					 </h1>
+
 				<!-- Icon Divider-->
 
 				<div class="divider-custom divider-light">
 					<div class="divider-custom-line"></div>
 					<div class="divider-custom-icon">
 						<i class="fas fa-star"></i>
+
+					</div>
+					<div class="divider-custom-line"></div>
+				</div>
+											 <h1 class="masthead-heading text-uppercase mb-0">	Riahi Rami </h1>
+<div class="divider-custom divider-light">
+					<div class="divider-custom-line"></div>
+					<div class="divider-custom-icon">
+						<i class="fas fa-star"></i>
+
 					</div>
 					<div class="divider-custom-line"></div>
 				</div>
 
-
 				<!-- Masthead Subheading-->
 				<p class="masthead-subheading font-weight-light mb-0">Developpement Web | Mobile</p>
+				
+				<br>
+				<br>
+				<br>
+
+<p align="center">
+  <!-- For more icons please follow  https://github.com/MikeCodesDotNET/ColoredBadges -->
+  <img src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/svg/dev/languages/html.svg" alt="html" style="vertical-align:top; margin:4px">    
+      <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/languages/css3.svg" alt="css3" style="vertical-align:top; margin:6px 4px">
+  <img src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/svg/dev/languages/csharp.svg" alt="csharp" style="vertical-align:top; margin:4px">
+  <img src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/svg/dev/languages/python.svg" alt="python" style="vertical-align:top; margin:4px">
+  <img src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/svg/dev/frameworks/react.svg" alt="react" style="vertical-align:top; margin:4px">
+    <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/frameworks/angular.svg" alt="angular" style="vertical-align:top; margin:4px">
+        <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/frameworks/bootstrap.svg" alt="bootstrap" style="vertical-align:top; margin:6px 4px">
+    <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/frameworks/nodejs.svg" alt="nodejs" style="vertical-align:top; margin:6px 4px">
+    <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/languages/java.svg" alt="java" style="vertical-align:top; margin:6px 4px">
+    <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/languages/php.svg" alt="php" style="vertical-align:top; margin:6px 4px">
+   <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/frameworks/jquery.svg" alt="php" style="vertical-align:top; margin:6px 4px">
+  <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/languages/js.svg" alt="php" style="vertical-align:top; margin:6px 4px">
+  <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/tools/eclipse.svg" alt="php" style="vertical-align:top; margin:6px 4px">
+  <img src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/svg/dev/tools/visualstudio_code.svg" alt="vscode" style="vertical-align:top; margin:6px 4px">
+  <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/tools/visualstudio.svg" alt="php" style="vertical-align:top; margin:6px 4px">
+ <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/tools/bash.svg" alt="php" style="vertical-align:top; margin:6px 4px">
+    <img src="https://raw.githubusercontent.com/MikeCodesDotNET/ColoredBadges/4a38660afb7be89a6032218589b4454a1285c7f8/svg/dev/services/npm.svg" alt="npm" style="vertical-align:top; margin:6px 4px">
+
+</p>
+
+
+				{# end here #}
 			</div>
 		</header>
 
@@ -117,7 +162,11 @@
 
 		{% block body %}{% endblock %}
 		<!-- Portfolio Section-->
+		<div id="portfolio">
+
 		{%  block sportfolio %}{% endblock %}
+
+		</div>
 		<!-- About Section-->
 		{% block section_about %}
 
@@ -137,18 +186,38 @@
 					<!-- About Section Content-->
 					<div class="row">
 						<div class="col-lg-4 ms-auto">
-							<p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
+							<p class="lead">
+Étudiant à l’école d’ingénieur, en 5éme année Génie logiciel, ou j’ai travaillé sur plusieurs projets avec divers technologies.							
+Je suis sur le point de changement de carriér vers le developpement web aprés une expérience de plus de 5ans en tant que commercial au sein d'un opérateur téléphonique 
+							</p>
 						</div>
 						<div class="col-lg-4 me-auto">
-							<p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
+							<p class="lead">
+
+COMPÉTENCES:
+<br>
+PHP - Java - C# - Javascript - JQuery - HTML5 - CSS3 
+<br>
+
+Frameworks : Symfony - Angular - React - Bootstrap - Nodejs
+<br>
+
+Base de donnée : MySQL, Doctrine, MongoDb
+<br>
+
+Versionning : Git							
+							</p>
 						</div>
 					</div>
 					<!-- About Section Button-->
 					<div class="text-center mt-4">
-						<a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-							<i class="fas fa-download me-2"></i>
-							Free Download!
+						<a class="btn btn-xl btn-outline-light" href="https://www.linkedin.com/in/rami-riahi-988197118/" target="_blank">
+							Linkedin
 						</a>
+						<a class="btn btn-xl btn-outline-dark" href="https://github.com/riahirami/" target="_blank">
+							Github
+						</a>
+						
 					</div>
 				</div>
 			</section>
@@ -179,51 +248,41 @@
 							<!-- To make this form functional, sign up at-->
 							<!-- https://startbootstrap.com/solution/contact-forms-->
 							<!-- to get an API token!-->
-								<form
-								id="contactForm" data-sb-form-api-token="API_TOKEN"> <!-- Name input-->
-								<div class="form-floating mb-3">
-									<input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required"/>
-									<label for="name">Full name</label>
-									<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+						{{ form_start(form) }}
+
+							
+								<div class="form-floatin mb-3">
+				{{ form_label(form.utilisateur) }}
+				{{ form_widget(form.utilisateur , { 'attr': { 'placeholder': '...' ,'class': 'form-control'} } ) }}
 								</div>
 								<!-- Email address input-->
-								<div class="form-floating mb-3">
-									<input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email"/>
-									<label for="email">Email address</label>
-									<div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-									<div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+								<div class="form-floatin mb-3">
+													{{ form_label(form.email) }}
+				{{ form_widget(form.email , { 'attr': { 'placeholder': '...' ,'class': 'form-control'} } ) }}
+
 								</div>
 								<!-- Phone number input-->
-								<div class="form-floating mb-3">
-									<input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required"/>
-									<label for="phone">Phone number</label>
-									<div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+								<div class="form-floatin mb-3">
+													{{ form_label(form.telephone) }}
+				{{ form_widget(form.telephone , { 'attr': { 'placeholder': '...' ,'class': 'form-control'} } ) }}
 								</div>
 								<!-- Message input-->
-								<div class="form-floating mb-3">
-									<textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-									<label for="message">Message</label>
-									<div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+								<div class="form-floatin mb-3">
+													{{ form_label(form.message) }}
+				{{ form_widget(form.message , { 'attr': { 'placeholder': '...' ,'class': 'form-control'} } ) }}
 								</div>
-								<!-- Submit success message-->
-								<!---->
-								<!-- This is what your users will see when the form-->
-								<!-- has successfully submitted-->
-									<div class="d-none" id="submitSuccessMessage"> <div class="text-center mb-3">
-										<div class="fw-bolder">Form submission successful!</div>
-										To activate this form, sign up at
-										<br/>
-										<a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-									</div>
-								</div>
-								<!-- Submit error message-->
-								<!---->
-								<!-- This is what your users will see when there is-->
-								<!-- an error submitting the form-->
+								
 									<div class="d-none" id="submitErrorMessage"> <div class="text-center text-danger mb-3">Error sending message!</div>
 								</div>
 								<!-- Submit Button-->
-								<button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
+								<div class="d-grid gap-2 ">
+
+								<button class="btn btn-primary  ">{{ button_label|default('Envoyer') }}</button>
+</div>
+{{ form_end(form) }}
+						
+
+
 							</form>
 						</div>
 					</div>

@@ -39,10 +39,12 @@
 								<p>{{i.nom}}</p>
 							</a>
 							<p>{{i.description}}</p>
-							<p>
+
+
+							<p class="badge bg-primary">
 								{{i.statut}}
 							</p>
-
+							
 
 						</div>
 						{% if  not app.user%}
@@ -61,6 +63,7 @@
 
 
 {% endblock %}
+
 
 
 {% block modal %}
