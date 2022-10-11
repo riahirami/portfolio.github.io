@@ -212,10 +212,11 @@ Versionning : Git
 					<!-- About Section Button-->
 					<div class="text-center mt-4">
 						<a class="btn btn-xl btn-outline-light" href="https://www.linkedin.com/in/rami-riahi-988197118/" target="_blank">
-							Linkedin
+													<i class="fab fa-fw fa-linkedin"></i>
+	Linkedin
 						</a>
 						<a class="btn btn-xl btn-outline-dark" href="https://github.com/riahirami/" target="_blank">
-							Github
+						<i class="fab fa-fw fa-github"></i>	Github
 						</a>
 						
 					</div>
@@ -277,7 +278,7 @@ Versionning : Git
 								<!-- Submit Button-->
 								<div class="d-grid gap-2 ">
 
-								<button class="btn btn-primary  ">{{ button_label|default('Envoyer') }}</button>
+								<button class="btn btn-primary" onsubmit="return confirm('tu souhaite vraiment envoyé ce message ?');">{{ button_label|default('Envoyer') }}</button>
 </div>
 {{ form_end(form) }}
 						
@@ -297,38 +298,26 @@ Versionning : Git
 				<div
 					class="row">
 					<!-- Footer Location-->
-					<div class="col-lg-4 mb-5 mb-lg-0">
-						<h4 class="text-uppercase mb-4">Location</h4>
-						<p class="lead mb-0">
-							2215 John Daniel Drive
-							<br/>
-							Clark, MO 65243
-						</p>
+					<div class="col-lg-4 mb-5 mb-lg-0 text-right">
+						
 					</div>
 					<!-- Footer Social Icons-->
 					<div class="col-lg-4 mb-5 mb-lg-0">
-						<h4 class="text-uppercase mb-4">Around the Web</h4>
-						<a class="btn btn-outline-light btn-social mx-1" href="#!">
-							<i class="fab fa-fw fa-facebook-f"></i>
+						<h4 class="text-uppercase mb-4">Contact | Contribution</h4>
+						<p class="lead mb-0 ">
+					
+						</p>
+						<a class="btn btn-outline-light btn-social mx-1" target="_blank" href="https://github.com/riahirami">
+							<i class="fab fa-fw fa-git"></i>
 						</a>
-						<a class="btn btn-outline-light btn-social mx-1" href="#!">
-							<i class="fab fa-fw fa-twitter"></i>
-						</a>
-						<a class="btn btn-outline-light btn-social mx-1" href="#!">
+						<a class="btn btn-outline-light btn-social mx-1" target="_blank" href="https://www.linkedin.com/in/rami-riahi-988197118/">
 							<i class="fab fa-fw fa-linkedin-in"></i>
 						</a>
-						<a class="btn btn-outline-light btn-social mx-1" href="#!">
-							<i class="fab fa-fw fa-dribbble"></i>
-						</a>
+						
 					</div>
 					<!-- Footer About Text-->
 					<div class="col-lg-4">
-						<h4 class="text-uppercase mb-4">About Freelancer</h4>
-						<p class="lead mb-0">
-							Freelance is a free to use, MIT licensed Bootstrap theme created by
-							<a href="http://startbootstrap.com">Start Bootstrap</a>
-							.
-						</p>
+						
 					</div>
 				</div>
 			</div>
@@ -336,7 +325,7 @@ Versionning : Git
 		<!-- Copyright Section-->
 		<div class="copyright py-4 text-center text-white">
 			<div class="container">
-				<small>Copyright &copy; Your Website 2021</small>
+				<small>Copyright &copy; Your Website 2022</small>
 			</div>
 		</div>
 		<!-- Portfolio Modals-->
